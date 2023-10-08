@@ -112,6 +112,17 @@ class Device:
     cpu_temperature: float | None = None
     gas_temperature: float | None = None
     ntc_temperature: float | None = None
+    depression: float | None = None
+    working_hours: float | None = None
+    ignitions: float | None = None
+    live_pulse: float | None = None
+    pulse_offset: float | None = None
+    working_state: float | None = None
+    extractor: float | None = None
+    working_level: float | None = None
+    convector_air_flow: float | None = None
+
+
 
     @classmethod
     def build(cls, data: dict[str, dict[str, str]]) -> Device:
@@ -135,4 +146,13 @@ class Device:
             cpu_temperature=float(stats["Tp"]),
             gas_temperature=float(stats["Th"]),
             ntc_temperature=float(stats["Tn"]),
+            depression=float(stats["Da"]),
+            working_hours=float(stats["Nh"]),
+            ignitions=float(stats["Ne"]),
+            live_pulse=float(stats["Pn"]),
+            pulse_offset=float(stats["Pf"]),
+            working_state=float(stats["Es"]),
+            extractor=float(stats["Ex"]),
+            working_level=float(stats["Ni"]),
+            convector_air_flow=float(stats["Co"]),
         )
